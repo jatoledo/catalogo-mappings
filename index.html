@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Catálogo de mappings RML y YARRRML del ecosistema EDINT.">
+<title>Catálogo de Mappings · EDINT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  :root{
+    --ink:#161F2E;--ink-soft:#4B5666;--muted:#727C8C;
+    --paper:#FFFFFF;--bg:#F3F4F6;--line:#DEE2E7;
+    --navy:#1E1D5B;--navy-2:#2A287A;
+    --accent:#3C3A9E;--accent-soft:#EEF0FA;
+    --ok:#2E6A50;--ok-soft:#E7F1EC;
+    --radius-sm:6px;--radius-md:10px;
+    --shadow:0 1px 2px rgba(22,31,46,.06),0 8px 24px rgba(22,31,46,.06);
+    --sans:'IBM Plex Sans',Arial,sans-serif;--mono:'IBM Plex Mono',Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);min-height:100vh;font-size:15.5px;line-height:1.5}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  /* Header */
+  .header{background:var(--navy);position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,.08)}
+  .header-inner{max-width:1280px;height:68px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .logo-mark{width:34px;height:34px;flex:0 0 auto}
+  .logo-text{color:#fff;font-weight:600;font-size:15.5px;line-height:1.25;letter-spacing:.1px}
+  .logo-sub{color:rgba(255,255,255,.46);font-size:11.5px;margin-top:1px}
+  .nav{display:flex;gap:26px}
+  .nav-btn{border:0;background:transparent;color:rgba(255,255,255,.6);font:500 13.5px var(--sans);padding:6px 2px;cursor:pointer;border-bottom:2px solid transparent;transition:color .15s,border-color .15s;display:flex;align-items:center;gap:8px}
+  .nav-btn:hover{color:#fff}
+  .nav-btn.active{color:#fff;border-bottom-color:var(--accent)}
+
+  /* Hero */
+  .hero{background:var(--navy);padding:64px 40px 56px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .hero-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:56px}
+  .hero-copy{max-width:600px}
+  .hero-label{color:rgba(255,255,255,.5);font-size:12.5px;font-weight:500;margin-bottom:16px}
+  .hero h1{color:#fff;font-size:clamp(29px,3.2vw,40px);line-height:1.2;letter-spacing:-.3px;font-weight:600;margin-bottom:18px}
+  .hero-desc{color:rgba(255,255,255,.62);font-size:16px;line-height:1.68;margin-bottom:34px}
+  .hero-stats{display:flex;align-items:baseline;gap:30px;flex-wrap:wrap}
+  .stat{display:flex;flex-direction:column;gap:3px}
+  .stat-num{color:#fff;font-family:var(--mono);font-size:24px;font-weight:600}
+  .stat-label{color:rgba(255,255,255,.46);font-size:12.5px}
+  .hero-divider{width:1px;height:30px;background:rgba(255,255,255,.14);align-self:center}
+  .hero-diagram{flex:0 0 auto;width:280px;display:block}
+  @media(max-width:980px){.hero-diagram{display:none}}
+
+  /* Layout */
+  .page{width:100%;max-width:1280px;margin:0 auto;padding:48px 40px 64px}
+  .section{display:none;animation:fadeUp .25s ease}
+  .section.active{display:block}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+  /* About section */
+  .desc-layout{display:grid;grid-template-columns:1fr 300px;gap:24px;align-items:start}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-md);padding:40px}
+  .card h2{color:var(--ink);font-size:23px;font-weight:600;letter-spacing:-.2px;margin-bottom:14px}
+  .card h3{color:var(--ink);font-size:15px;font-weight:600;margin:28px 0 12px}
+  .card p{color:var(--ink-soft);font-size:15px;line-height:1.78}
+  .goals{list-style:none;display:grid;gap:2px;margin-top:6px}
+  .goals li{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--line);color:var(--ink-soft);font-size:14.5px;line-height:1.6}
+  .goals li:first-child{border-top:none}
+  .goals li i{color:var(--accent);font-size:11px;margin-top:6px;flex:0 0 auto}
+
+  .side-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-md);padding:24px;margin-bottom:16px}
+  .side-card.highlight{background:var(--accent-soft);border-color:#D7D9EE}
+  .side-title{color:var(--ink);font-size:13px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .side-title i{color:var(--accent);font-size:12px}
+  .side-item{display:flex;gap:10px;color:var(--ink-soft);font-size:13.5px;line-height:1.6;margin-top:11px}
+  .side-item:first-of-type{margin-top:0}
+  .side-item i{width:16px;color:var(--muted);margin-top:3px;flex:0 0 auto}
+  .side-item code{font-family:var(--mono);font-size:12px;background:rgba(0,0,0,.05);padding:1px 5px;border-radius:4px}
+  .highlight code{background:rgba(0,0,0,.06)}
+
+  /* Catalog section */
+  .section-header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+  .section-header h2{color:var(--ink);font-size:22px;font-weight:600}
+  .section-header p{color:var(--muted);font-size:13.5px;margin-top:5px}
+
+  .toolbar{display:flex;gap:12px;align-items:center;margin-bottom:18px;flex-wrap:wrap}
+  .search{min-width:min(380px,100%);flex:1;position:relative}
+  .search i{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:13px}
+  .search input,.filter{height:40px;border:1px solid var(--line);border-radius:var(--radius-sm);background:#fff;color:var(--ink);outline:none;font:500 13.5px var(--sans)}
+  .search input{width:100%;padding:0 14px 0 38px}
+  .filter{padding:0 12px;min-width:180px}
+  .search input:focus,.filter:focus{border-color:var(--navy-2);box-shadow:0 0 0 3px rgba(32,51,78,.09)}
+
+  .table-wrap{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow)}
+  .table-scroll{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;table-layout:fixed;min-width:960px}
+  thead tr{background:var(--navy)}
+  th{text-align:left;padding:14px 20px;color:rgba(255,255,255,.68);font-size:10.5px;font-weight:600;letter-spacing:.9px;text-transform:uppercase}
+  th:first-child{color:#fff}
+  td{padding:20px;vertical-align:top;border-top:1px solid var(--line);font-size:13.5px;line-height:1.55}
+  tbody tr:first-child td{border-top:none}
+  tbody tr:hover{background:#FAFAFB}
+
+  .mapping-name{color:var(--ink);font-size:14px;font-weight:600;display:block;margin-bottom:4px}
+  .mapping-file{color:var(--muted);font:400 11.5px var(--mono)}
+  .desc{color:var(--ink-soft)}
+
+  .domain-tag{display:inline-flex;align-items:center;border:1px solid #D7D9EE;background:var(--accent-soft);color:#2A287A;border-radius:100px;padding:4px 10px;font-size:11px;font-weight:600;white-space:nowrap}
+  .format-pills{display:flex;gap:6px;flex-wrap:wrap}
+  .format-pill{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:5px;padding:3px 7px;background:#F6F7F9;color:var(--navy-2);font-size:11px;font-family:var(--mono)}
+  .source-pill{display:inline-flex;align-items:center;margin-top:8px;border:1px solid #CFE4D8;border-radius:100px;padding:3px 9px;background:var(--ok-soft);color:var(--ok);font-size:11px;font-weight:600}
+
+  .resource-links{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+  .resource-link{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:var(--navy-2);font-size:12.5px;font-weight:500}
+  .resource-link i{width:13px;color:var(--muted);text-align:center;font-size:11.5px}
+  .resource-link:hover{color:var(--accent)}
+  .resource-link:hover i{color:var(--accent)}
+  .resource-link.pending{color:#9AA2AF;cursor:default}
+
+  .empty{padding:44px!important;text-align:center;color:var(--muted);font-size:13.5px}
+
+  /* Footer */
+  .footer{background:var(--navy);color:rgba(255,255,255,.5);padding:28px 40px;border-top:1px solid rgba(255,255,255,.08)}
+  .footer-inner{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;gap:20px;align-items:center;font-size:12.5px}
+  .footer strong{color:#fff;font-weight:600}
+  .footer a{color:var(--accent);text-decoration:none}
+  .footer a:hover{text-decoration:underline}
+
+
+  /* Footer mejorado */
+  .footer{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:rgba(255,255,255,.72);padding:36px 40px;border-top:1px solid rgba(255,255,255,.08)}
+  .footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:minmax(260px,1fr) minmax(420px,1.25fr);gap:34px;align-items:start}
+  .footer-brand{display:flex;gap:14px;align-items:flex-start}
+  .footer-mark{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;flex:0 0 auto;color:#fff}
+  .footer-mark i{font-size:16px}
+  .footer-title{color:#fff;font-size:14px;font-weight:600;margin-bottom:5px}
+  .footer-copy{font-size:12.5px;line-height:1.6;color:rgba(255,255,255,.56);max-width:440px}
+  .footer-resources-title{color:#fff;font-size:12px;font-weight:600;letter-spacing:.3px;text-transform:uppercase;margin-bottom:12px}
+  .footer-resources{display:flex;gap:9px;flex-wrap:wrap}
+  .footer-tool{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);padding:9px 11px;border-radius:9px;font-size:12px;font-weight:500;transition:transform .15s ease,background .15s ease,border-color .15s ease}
+  .footer-tool:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.22);transform:translateY(-1px)}
+  .footer-tool-icon{width:24px;height:24px;border-radius:6px;background:rgba(255,255,255,.09);display:grid;place-items:center;flex:0 0 auto}
+  .footer-tool-icon i{font-size:11px;color:#fff}
+  .footer-tool .label{display:flex;flex-direction:column;line-height:1.1}
+  .footer-tool .label strong{font-size:11.5px;color:#fff;font-weight:600}
+  .footer-tool .label span{font-size:9.5px;color:rgba(255,255,255,.48);margin-top:2px}
+  .footer-bottom{max-width:1280px;margin:26px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.09);display:flex;justify-content:space-between;gap:20px;align-items:center;font-size:11.5px;color:rgba(255,255,255,.42)}
+  .footer-bottom a{color:rgba(255,255,255,.72);text-decoration:none}
+  .footer-bottom a:hover{color:#fff}
+
+  @media(max-width:900px){
+    .header-inner{padding:0 20px}.nav-btn span{display:none}
+    .hero{padding:44px 20px}.hero-inner{flex-direction:column;align-items:flex-start;gap:28px}
+    .page{padding:32px 20px 48px}.desc-layout{grid-template-columns:1fr}.card{padding:28px}
+    .footer-inner{grid-template-columns:1fr}.footer-resources{justify-content:flex-start}.footer-bottom{flex-direction:column;align-items:flex-start}.footer-tool{min-width:150px}
+  }
+  @media(max-width:600px){.filter{width:100%}.logo-sub{display:none}}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo" aria-label="Inicio del catálogo">
+      <svg class="logo-mark" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="7" cy="9" r="4" stroke="#FFFFFF" stroke-width="1.6"/>
+        <circle cx="27" cy="9" r="4" stroke="#FFFFFF" stroke-width="1.6"/>
+        <circle cx="17" cy="26" r="4" stroke="#3C3A9E" stroke-width="1.6" fill="#3C3A9E" fill-opacity=".15"/>
+        <path d="M10.3 10.6L14 23.6M23.7 10.6L20 23.6" stroke="rgba(255,255,255,.55)" stroke-width="1.3"/>
+      </svg>
+      <div>
+        <div class="logo-text">Catálogo de Mappings</div>
+        <div class="logo-sub">EDINT — transformación a RDF</div>
+      </div>
+    </a>
+    <nav class="nav" aria-label="Navegación principal">
+      <button class="nav-btn active" data-section="descripcion"><i class="fa-solid fa-circle-info"></i> <span>Acerca de</span></button>
+      <button class="nav-btn" data-section="catalogo"><i class="fa-solid fa-table-list"></i> <span>Mappings</span></button>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="hero-label">Mappings semánticos EDINT</div>
+      <h1>Transformaciones semánticas de datos urbanos</h1>
+      <p class="hero-desc">Catálogo centralizado de mappings RML y YARRRML utilizados para transformar conjuntos de datos urbanos en grafos RDF alineados con las ontologías EDINT.</p>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num" id="statMappings">0</div><div class="stat-label">Mappings</div></div>
+        <div class="hero-divider"></div>
+        <div class="stat"><div class="stat-num" id="statDomains">0</div><div class="stat-label">Dominios</div></div>
+        <div class="hero-divider"></div>
+        <div class="stat"><div class="stat-num">RML</div><div class="stat-label">Lenguaje de mapping</div></div>
+      </div>
+    </div>
+    <svg class="hero-diagram" viewBox="0 0 260 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <line x1="45" y1="40" x2="130" y2="95" stroke="rgba(255,255,255,.22)" stroke-width="1.2"/>
+      <line x1="215" y1="40" x2="130" y2="95" stroke="rgba(255,255,255,.22)" stroke-width="1.2"/>
+      <line x1="130" y1="95" x2="130" y2="150" stroke="rgba(255,255,255,.22)" stroke-width="1.2"/>
+      <circle cx="45" cy="40" r="20" fill="#20334E" stroke="rgba(255,255,255,.4)" stroke-width="1.2"/>
+      <text x="45" y="44" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="rgba(255,255,255,.7)">:dato</text>
+      <circle cx="215" cy="40" r="20" fill="#20334E" stroke="rgba(255,255,255,.4)" stroke-width="1.2"/>
+      <text x="215" y="44" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="rgba(255,255,255,.7)">:origen</text>
+      <circle cx="130" cy="95" r="22" fill="#3C3A9E" fill-opacity=".22" stroke="#3C3A9E" stroke-width="1.4"/>
+      <text x="130" y="99" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#EEF0FA">rdf:type</text>
+      <circle cx="130" cy="150" r="20" fill="#20334E" stroke="rgba(255,255,255,.4)" stroke-width="1.2"/>
+      <text x="130" y="154" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="rgba(255,255,255,.7)">:clase</text>
+    </svg>
+  </div>
+</section>
+
+<main class="page">
+
+  <section id="descripcion" class="section active">
+    <div class="desc-layout">
+      <article class="card">
+        <h2>Biblioteca de transformaciones a RDF</h2>
+        <p>Este espacio reúne las transformaciones definidas para convertir distintos conjuntos de datos en RDF utilizando los modelos semánticos de EDINT. Cada mapping se presenta como una unidad reutilizable, con acceso directo a su documentación y a los ficheros necesarios para consultar, ejecutar o adaptar la transformación.</p>
+        <h3>Qué encontrarás aquí</h3>
+        <ul class="goals">
+          <li><i class="fa-solid fa-circle"></i><span>Mappings organizados por dominio para localizar rápidamente la transformación asociada a cada caso de uso.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Acceso a la documentación generada para entender las reglas, entidades y propiedades utilizadas en cada mapping.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Enlaces a las versiones RML y YARRRML para facilitar su ejecución, revisión y reutilización.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Referencia al repositorio de cada dominio para consultar la implementación y su evolución.</span></li>
+        </ul>
+      </article>
+      <aside>
+        <div class="side-card">
+          <div class="side-title"><i class="fa-solid fa-layer-group"></i>Contenido de cada mapping</div>
+          <div class="side-item"><i class="fa-solid fa-file-lines"></i><span>Documentación HTML.</span></div>
+          <div class="side-item"><i class="fa-solid fa-code"></i><span>Mapping RML en Turtle (<code>.ttl</code>).</span></div>
+          <div class="side-item"><i class="fa-solid fa-file-code"></i><span>Mapping YARRRML (<code>.yml</code>).</span></div>
+          <div class="side-item"><i class="fa-brands fa-github"></i><span>Repositorio fuente en GitHub.</span></div>
+        </div>
+        <div class="side-card highlight">
+          <div class="side-title"><i class="fa-solid fa-wrench"></i>Mantenimiento</div>
+          <div class="side-item"><i class="fa-solid fa-circle-plus"></i><span>Los mappings se mantienen en <code>mappings/mappings.json</code>. Para añadir uno nuevo basta con incorporar una nueva entrada al JSON; el catálogo se actualiza automáticamente.</span></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="catalogo" class="section">
+    <div class="section-header">
+      <div>
+        <h2>Catálogo de Mappings</h2>
+        <p>Transformaciones disponibles, agrupadas por dominio y con acceso directo a sus recursos.</p>
+      </div>
+    </div>
+    <div class="toolbar">
+      <label class="search"><i class="fa-solid fa-magnifying-glass"></i><input id="searchInput" type="search" placeholder="Buscar mapping, dominio..." aria-label="Buscar mappings"></label>
+      <select id="domainFilter" class="filter" aria-label="Filtrar por dominio"><option value="">Todos los dominios</option></select>
+    </div>
+    <div class="table-wrap">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th style="width:24%">Mapping</th><th style="width:42%">Descripción</th><th style="width:16%">Dominio</th><th style="width:18%">Recursos</th></tr>
+          </thead>
+          <tbody id="mappingTbody">
+            <tr><td colspan="4" class="empty"><i class="fa-solid fa-spinner fa-spin" style="font-size:18px;margin-bottom:10px;display:block"></i>Cargando mappings…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-mark" aria-hidden="true">
+        <i class="fa-solid fa-diagram-project"></i>
+      </div>
+      <div>
+        <div class="footer-title">Catálogo de Mappings EDINT</div>
+        <div class="footer-copy">
+          Recursos de transformación semántica para generar RDF interoperable mediante RML y YARRRML, con documentación y herramientas asociadas.
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="footer-resources-title">Especificaciones y herramientas</div>
+      <div class="footer-resources">
+        <a class="footer-tool" href="https://rml.io/specs/rml/" target="_blank" rel="noopener noreferrer" aria-label="Especificación RML">
+          <span class="footer-tool-icon"><i class="fa-solid fa-code"></i></span>
+          <span class="label"><strong>RML</strong><span>Especificación</span></span>
+        </a>
+
+        <a class="footer-tool" href="https://rml.io/yarrrml/" target="_blank" rel="noopener noreferrer" aria-label="YARRRML">
+          <span class="footer-tool-icon"><i class="fa-solid fa-file-code"></i></span>
+          <span class="label"><strong>YARRRML</strong><span>Lenguaje</span></span>
+        </a>
+
+        <a class="footer-tool" href="https://rml.io/yarrrml/matey/" target="_blank" rel="noopener noreferrer" aria-label="Matey">
+          <span class="footer-tool-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+          <span class="label"><strong>Matey</strong><span>Editor web</span></span>
+        </a>
+
+        <a class="footer-tool" href="https://github.com/citiususc/yatter" target="_blank" rel="noopener noreferrer" aria-label="Yatter">
+          <span class="footer-tool-icon"><i class="fa-brands fa-github"></i></span>
+          <span class="label"><strong>Yatter</strong><span>Conversor</span></span>
+        </a>
+
+        <a class="footer-tool" href="https://github.com/oeg-upm/rmldoc" target="_blank" rel="noopener noreferrer" aria-label="RMLDoc">
+          <span class="footer-tool-icon"><i class="fa-brands fa-github"></i></span>
+          <span class="label"><strong>RMLDoc</strong><span>Documentación</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>EDINT · Ecosistema de datos urbanos interoperables</span>
+    <span>Mappings RML / YARRRML</span>
+  </div>
+</footer>
+
+<script>
+let mappingData = [];
+
+const tbody = document.getElementById('mappingTbody');
+const searchInput = document.getElementById('searchInput');
+const domainFilter = document.getElementById('domainFilter');
+
+function resourceLink(url, icon, label) {
+  if (!url) {
+    return `<span class="resource-link pending">
+      <i class="fa-solid fa-clock"></i>${label} pendiente
+    </span>`;
+  }
+
+  return `<a class="resource-link" href="${url}" target="_blank" rel="noopener noreferrer">
+    <i class="${icon}"></i>${label}
+  </a>`;
+}
+
+function renderMappings(items) {
+  if (!Array.isArray(items) || !items.length) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="4" class="empty">
+          <i class="fa-solid fa-magnifying-glass" style="font-size:18px;margin-bottom:10px;display:block"></i>
+          No se han encontrado mappings con esos criterios.
+        </td>
+      </tr>`;
+    return;
+  }
+
+  tbody.innerHTML = items.map(item => {
+    const recursos = (item.recursos || []).map(recurso =>
+      resourceLink(
+        recurso.url,
+        recurso.icon || 'fa-solid fa-link',
+        recurso.nombre || 'Recurso'
+      )
+    ).join('');
+
+    return `
+      <tr>
+        <td>
+          <span class="mapping-name">${item.mapping || ''}</span>
+          <span class="mapping-file">${item.fichero || ''}</span>
+        </td>
+        <td><span class="desc">${item.descripcion || ''}</span></td>
+        <td><span class="domain-tag">${item.dominio || ''}</span></td>
+        <td>
+          <div class="resource-links">
+            ${resourceLink(item.documentacion, 'fa-solid fa-book-open', 'Documentación HTML')}
+            ${recursos}
+          </div>
+        </td>
+      </tr>`;
+  }).join('');
+}
+
+function populateDomainFilter(data) {
+  domainFilter.innerHTML = '<option value="">Todos los dominios</option>';
+
+  [...new Set(data.map(item => item.dominio).filter(Boolean))]
+    .sort((a, b) => a.localeCompare(b, 'es'))
+    .forEach(dominio => {
+      const option = document.createElement('option');
+      option.value = dominio;
+      option.textContent = dominio;
+      domainFilter.appendChild(option);
+    });
+}
+
+function filterMappings() {
+  const query = searchInput.value.trim().toLowerCase();
+  const domain = domainFilter.value;
+
+  const filtered = mappingData.filter(item => {
+    const haystack = [
+      item.mapping,
+      item.fichero,
+      item.descripcion,
+      item.dominio,
+      ...(item.recursos || []).map(r => r.nombre)
+    ].filter(Boolean).join(' ').toLowerCase();
+
+    return (!query || haystack.includes(query)) &&
+           (!domain || item.dominio === domain);
+  });
+
+  renderMappings(filtered);
+}
+
+async function loadMappings() {
+  try {
+    const response = await fetch('./mappings/mappings.json');
+
+    if (!response.ok) {
+      throw new Error(`No se pudo cargar mappings.json (${response.status})`);
+    }
+
+    const data = await response.json();
+
+    if (!Array.isArray(data)) {
+      throw new Error('El contenido de mappings.json debe ser un array.');
+    }
+
+    mappingData = data;
+
+    const domains = new Set(
+      mappingData.map(item => item.dominio).filter(Boolean)
+    );
+
+    document.getElementById('statMappings').textContent = mappingData.length;
+    document.getElementById('statDomains').textContent = domains.size;
+
+    populateDomainFilter(mappingData);
+    renderMappings(mappingData);
+  } catch (error) {
+    console.error('Error cargando mappings:', error);
+
+    document.getElementById('statMappings').textContent = '—';
+    document.getElementById('statDomains').textContent = '—';
+
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="4" class="empty">
+          <i class="fa-solid fa-triangle-exclamation" style="font-size:18px;margin-bottom:10px;display:block"></i>
+          No se pudo cargar <strong>mappings/mappings.json</strong>.
+          Comprueba la ruta y sirve el catálogo mediante HTTP/GitHub Pages.
+        </td>
+      </tr>`;
+  }
+}
+
+document.querySelectorAll('.nav-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.section).classList.add('active');
+  });
+});
+
+searchInput.addEventListener('input', filterMappings);
+domainFilter.addEventListener('change', filterMappings);
+
+loadMappings();
+</script>
+</body>
+</html>
