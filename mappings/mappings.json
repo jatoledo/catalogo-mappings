@@ -1,0 +1,98 @@
+[
+  {
+    "mapping": "Calidad del Aire",
+    "fichero": "calidad_aire",
+    "descripcion": "Transformación de datos de calidad del aire a RDF para representar estaciones, sensores, observaciones y resultados asociados a contaminantes atmosféricos.",
+    "dominio": "Medio ambiente",
+    "documentacion": "https://raw.githack.com/EDINT-Ontologia/edint-ontologia-calidad-aire/refs/heads/main/mappings/mapping_doc/index.html",
+    "recursos": [
+      {
+        "nombre": "RML / Turtle",
+        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-calidad-aire/blob/main/mappings/mapping_doc/calidad_aire.ttl",
+        "icon": "fa-solid fa-code"
+      },
+      {
+        "nombre": "YARRRML",
+        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-calidad-aire/blob/main/mappings/yml/calidad_aire.yml",
+        "icon": "fa-solid fa-file-lines"
+      },
+      {
+        "nombre": "Repositorio",
+        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-calidad-aire",
+        "icon": "fa-brands fa-github"
+      }
+    ]
+  },
+  {
+    "mapping": "Climatología",
+    "fichero": "mapping",
+    "descripcion": "Transformación de observaciones y mediciones climatológicas a RDF mediante la ontología EDINT de Sensores Medioambientales.",
+    "dominio": "Medio ambiente",
+    "documentacion": "https://raw.githack.com/EDINT-Ontologia/edint-ontologia-climatologia/refs/heads/main/mappings/mapping_doc/index.html",
+    "recursos": [
+      {
+        "nombre": "RML / Turtle",
+        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-climatologia/blob/main/mappings/mapping_doc/climatologia.ttl",
+        "icon": "fa-solid fa-code"
+      },
+      {
+        "nombre": "YARRRML",
+        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-climatologia/blob/main/mappings/yml/climatologia.yml",
+        "icon": "fa-solid fa-file-lines"
+      },
+      {
+        "nombre": "Repositorio",
+        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-climatologia",
+        "icon": "fa-brands fa-github"
+      }
+    ]
+  },
+  {
+    "mapping": "Contaminación Acústica",
+    "fichero": "contaminacion_acustica",
+    "descripcion": "Transformación de mediciones de contaminación acústica a RDF para representar sensores, observaciones y niveles sonoros.",
+    "dominio": "Medio ambiente",
+    "documentacion": "https://raw.githack.com/EDINT-Ontologia/edint-ontologia-contaminacion-acustica/refs/heads/main/mappings/mapping_doc/index.html",
+    "recursos": [
+      {
+        "nombre": "RML / Turtle",
+        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-contaminacion-acustica/blob/main/mappings/mapping_doc/contaminacion_acustica.ttl",
+        "icon": "fa-solid fa-code"
+      },
+      {
+        "nombre": "YARRRML",
+        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-contaminacion-acustica/blob/main/mappings/yml/contaminacion_acustica.yml",
+        "icon": "fa-solid fa-file-lines"
+      },
+      {
+        "nombre": "Repositorio",
+        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-contaminacion-acustica",
+        "icon": "fa-brands fa-github"
+      }
+    ]
+  },
+  {
+    "mapping": "Aparcamiento",
+    "fichero": "parking",
+    "descripcion": "Transformación de datos de plazas de aparcamiento, sensores y observaciones de ocupación a RDF.",
+    "dominio": "Movilidad",
+    "documentacion": null,
+    "recursos": [
+      {
+        "nombre": "RML / Turtle",
+        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-aparcamiento/blob/main/mappings/mapping_doc/parking.ttl",
+        "icon": "fa-solid fa-code"
+      },
+      {
+        "nombre": "YARRRML",
+        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-aparcamiento/blob/main/mappings/yml/parking.yml",
+        "icon": "fa-solid fa-file-lines"
+      },
+      {
+        "nombre": "Repositorio",
+        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-aparcamiento",
+        "icon": "fa-brands fa-github"
+      }
+    ]
+  }
+]
