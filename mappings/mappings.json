@@ -76,7 +76,7 @@
     "fichero": "parking",
     "descripcion": "Transformación de datos de plazas de aparcamiento, sensores y observaciones de ocupación a RDF.",
     "dominio": "Movilidad",
-    "documentacion": null,
+    "documentacion": "https://raw.githack.com/EDINT-Ontologia/edint-ontologia-aparcamiento/refs/heads/main/mappings/mapping_doc/index.html",
     "recursos": [
       {
         "nombre": "RML / Turtle",
