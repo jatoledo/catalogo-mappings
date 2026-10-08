@@ -1,0 +1,68 @@
+# Mapping de POI histórico-culturales de la Diputación de Badajoz.
+# Modelo principal: SEGITTUR, reutilizado por EDINT Turismo.
+
+prefixes:
+  estur: "https://ontologia.segittur.es/turismo/def/core#"
+  schema: "https://schema.org/"
+  dcterms: "http://purl.org/dc/terms/"
+  geo: "http://www.w3.org/2003/01/geo/wgs84_pos#"
+  xsd: "http://www.w3.org/2001/XMLSchema#"
+
+mappings:
+  recursos_culturales:
+    sources:
+      - ["poi_culturales.json~jsonpath", "$[*]"]
+    s: "https://example.org/badajoz/poi/$(identifier)"
+    po:
+      - [a, estur:HistoricalOrCulturalResource]
+      - [schema:identifier, "$(identifier)"]
+      - [estur:name, "$(name)"]
+      - [estur:hasLocation, "https://example.org/badajoz/poi/$(identifier)/location~iri"]
+      - [schema:image, "$(image)~iri"]
+      - [dcterms:modified, "$(extras.changed[0])", xsd:dateTime]
+
+
+  ubicaciones:
+    sources:
+      - ["poi_culturales.json~jsonpath", "$[*]"]
+    s: "https://example.org/badajoz/poi/$(identifier)/location"
+    po:
+      - [a, estur:Location]
+      - [estur:country, "$(addressCountry)"]
+      - [estur:autonomousCommunity, "$(addressRegion)"]
+      - [estur:province, "$(addressProvince)"]
+      - [estur:locality, "$(addressLocality)"]
+      - [estur:streetAddress, "$(streetAddress)"]
+      - [geo:lat, "$(latitude)", xsd:decimal]
+      - [geo:long, "$(longitude)", xsd:decimal]
+
+  descripciones:
+    sources:
+      - ["poi_culturales.json~jsonpath", "$[*]"]
+    s: "https://example.org/badajoz/poi/$(identifier)/description"
+    po:
+      - [a, estur:Description]
+      - [estur:longDescription, "$(description)"]
+
+  enlaces_descripcion:
+    sources:
+      - ["poi_culturales.json~jsonpath", "$[*]"]
+    s: "https://example.org/badajoz/poi/$(identifier)"
+    po:
+      - [estur:hasDescription, "https://example.org/badajoz/poi/$(identifier)/description~iri"]
+
+  contactos:
+    sources:
+      - ["poi_culturales.json~jsonpath", "$[*]"]
+    s: "https://example.org/badajoz/poi/$(identifier)/contact"
+    po:
+      - [a, estur:ContactPoint]
+      - [estur:telephone, "$(telephone)"]
+      - [estur:email, "$(email)"]
+
+  enlaces_contacto:
+    sources:
+      - ["poi_culturales.json~jsonpath", "$[*]"]
+    s: "https://example.org/badajoz/poi/$(identifier)"
+    po:
+      - [estur:hasContactPoint, "https://example.org/badajoz/poi/$(identifier)/contact~iri"]

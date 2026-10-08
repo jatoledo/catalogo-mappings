@@ -1,0 +1,32 @@
+# Mapping YARRRML: Centros culturales de la Diputacion de Badajoz -> EDINT.
+prefixes:
+  edintinf: https://edint.es/def/infraestructura#
+  esadm: http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#
+  dct: http://purl.org/dc/terms/
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  geonames: http://www.geonames.org/ontology#
+
+mappings:
+  centros_culturales:
+    sources:
+      - ['centrosculturales2025.csv~csv']
+    s: https://example.org/badajoz/recurso/centro-cultural/$(nombre)
+    po:
+      - [a, edintinf:Facility]
+      - [dct:identifier, $(nombre)]
+      - [rdfs:label, $(nombre)]
+      - [edintinf:belongsTo, "http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Badajoz~iri"]
+#      - [edintinf:hasInfrastructureType, $(tipo_infraestructura_uri)~iri]
+
+  provincia-badajoz:
+    sources:
+      - ['centrosculturales2025.csv~csv']
+    s: http://datos.gob.es/recurso/sector-publico/territorio/Provincia/Badajoz
+    po:
+      - [a, esadm:Provincia]
+      - [dct:identifier, $(codigo_provincia)] # codigo_provincia: 6 en el CSV; código INE oficial 06.
+      - [dct:title, 'Badajoz']
+      - [rdfs:label, 'Provincia de Badajoz']
+      - [esadm:autonomia, 'http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Extremadura~iri']
+      - [esadm:pais, 'http://datos.gob.es/recurso/sector-publico/territorio/Pais/España~iri']
