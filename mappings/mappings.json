@@ -95,5 +95,53 @@
         "icon": "fa-brands fa-github"
       }
     ]
+  },
+  {
+    "mapping": "Infraestructura",
+    "fichero": "infraestructura",
+    "descripcion": "Transformación de datos de infraestructuras y equipamientos municipales a RDF para representar instalaciones, tipologías, ubicaciones, características y relaciones con otros elementos del entorno urbano mediante la ontología EDINT Infraestructura.",
+    "dominio": "Infraestructura",
+    "documentacion": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/infraestructura-rmldoc/",
+    "recursos": [
+      {
+        "nombre": "RML / Turtle",
+        "url": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/infraestructura-rmldoc/infraestructura.rml.ttl",
+        "icon": "fa-solid fa-code"
+      },
+      {
+        "nombre": "YARRRML",
+        "url": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/infraestructura-rmldoc/infraestructura.yml",
+        "icon": "fa-solid fa-file-lines"
+      },
+      {
+        "nombre": "Repositorio",
+        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-infraestructura",
+        "icon": "fa-brands fa-github"
+      }
+    ]
+  },
+  {
+    "mapping": "Turismo",
+    "fichero": "turismo",
+    "descripcion": "Transformación de datos turísticos a RDF para representar alojamientos, establecimientos, recursos históricos y culturales, puntos de interés turístico, ubicaciones y características asociadas mediante la ontología EDINT Turismo.",
+    "dominio": "Turismo",
+    "documentacion": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/turismo-rmldoc/",
+    "recursos": [
+      {
+        "nombre": "RML / Turtle",
+        "url": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/turismo-rmldoc/turismo.rml.ttl",
+        "icon": "fa-solid fa-code"
+      },
+      {
+        "nombre": "YARRRML",
+        "url": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/turismo-rmldoc/turismo.yml",
+        "icon": "fa-solid fa-file-lines"
+      },
+      {
+        "nombre": "Repositorio",
+        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-turismo",
+        "icon": "fa-brands fa-github"
+      }
+    ]
   }
 ]
