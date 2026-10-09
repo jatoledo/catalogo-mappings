@@ -19,7 +19,7 @@
       },
       {
         "nombre": "Repositorio",
-        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-calidad-aire",
+        "url": "https://github.com/jatoledo/catalogo-mappings/tree/main/mapping_doc/calidad_aire-rmldoc",
         "icon": "fa-brands fa-github"
       }
     ]
@@ -43,7 +43,7 @@
       },
       {
         "nombre": "Repositorio",
-        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-climatologia",
+        "url": "https://github.com/jatoledo/catalogo-mappings/tree/main/mapping_doc/climatologia-rmldoc",
         "icon": "fa-brands fa-github"
       }
     ]
@@ -67,7 +67,7 @@
       },
       {
         "nombre": "Repositorio",
-        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-contaminacion-acustica",
+        "url": "https://github.com/jatoledo/catalogo-mappings",
         "icon": "fa-brands fa-github"
       }
     ]
@@ -91,7 +91,7 @@
       },
       {
         "nombre": "Repositorio",
-        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-aparcamiento",
+        "url": "https://github.com/jatoledo/catalogo-mappings/tree/main/mapping_doc/parking-rmldoc",
         "icon": "fa-brands fa-github"
       }
     ]
@@ -115,7 +115,7 @@
       },
       {
         "nombre": "Repositorio",
-        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-infraestructura",
+        "url": "https://github.com/jatoledo/catalogo-mappings/tree/main/mapping_doc/infraestructura-rmldoc",
         "icon": "fa-brands fa-github"
       }
     ]
@@ -139,7 +139,7 @@
       },
       {
         "nombre": "Repositorio",
-        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-turismo",
+        "url": "https://github.com/jatoledo/catalogo-mappings/tree/main/mapping_doc/turismo-rmldoc",
         "icon": "fa-brands fa-github"
       }
     ]
