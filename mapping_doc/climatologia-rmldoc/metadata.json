@@ -1,0 +1,17 @@
+{
+  "title": "Mappings RML para transformar datos de Climatología a RDF (EDINT Climatología)",
+  "version": "1.0.0",
+  "release": "",
+  "authors": "Jhon Toledo",
+  "description": "Este conjunto de mappings RML transforma datos de climatología a RDF, utilizando la ontología EDINT de Sensores Medioambientales para la representación de magnitudes climatológicas. El objetivo es generar un grafo RDF interoperable para representar observaciones y mediciones climatológicas, a partir del conjunto de datos de climatología del portal de datos abiertos de la Diputación de Badajoz.\n",
+  "serializations": [
+    {
+      "label": "YARRRML",
+      "filename": "climatologia.yml"
+    },
+    {
+      "label": "RML / Turtle",
+      "filename": "climatologia.rml.ttl"
+    }
+  ]
+}

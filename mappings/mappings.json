@@ -1,19 +1,20 @@
+
 [
   {
     "mapping": "Calidad del Aire",
     "fichero": "calidad_aire",
     "descripcion": "Transformación de datos de calidad del aire a RDF para representar estaciones, sensores, observaciones y resultados asociados a contaminantes atmosféricos.",
     "dominio": "Medio ambiente",
-    "documentacion": "https://raw.githack.com/EDINT-Ontologia/edint-ontologia-calidad-aire/refs/heads/main/mappings/mapping_doc/index.html",
+    "documentacion": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/calidad_aire-rmldoc/",
     "recursos": [
       {
         "nombre": "RML / Turtle",
-        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-calidad-aire/blob/main/mappings/mapping_doc/calidad_aire.ttl",
+        "url": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/calidad_aire-rmldoc/calidad_aire.rml.ttl",
         "icon": "fa-solid fa-code"
       },
       {
         "nombre": "YARRRML",
-        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-calidad-aire/blob/main/mappings/yml/calidad_aire.yml",
+        "url": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/calidad_aire-rmldoc/calidad_aire.yml",
         "icon": "fa-solid fa-file-lines"
       },
       {
@@ -28,16 +29,16 @@
     "fichero": "mapping",
     "descripcion": "Transformación de observaciones y mediciones climatológicas a RDF mediante la ontología EDINT de Sensores Medioambientales.",
     "dominio": "Medio ambiente",
-    "documentacion": "https://raw.githack.com/EDINT-Ontologia/edint-ontologia-climatologia/refs/heads/main/mappings/mapping_doc/index.html",
+    "documentacion": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/climatologia-rmldoc/",
     "recursos": [
       {
         "nombre": "RML / Turtle",
-        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-climatologia/blob/main/mappings/mapping_doc/climatologia.ttl",
+        "url": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/climatologia-rmldoc/climatologia.rml.ttl",
         "icon": "fa-solid fa-code"
       },
       {
         "nombre": "YARRRML",
-        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-climatologia/blob/main/mappings/yml/climatologia.yml",
+        "url": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/climatologia-rmldoc/climatologia.yml",
         "icon": "fa-solid fa-file-lines"
       },
       {
@@ -52,7 +53,7 @@
     "fichero": "contaminacion_acustica",
     "descripcion": "Transformación de mediciones de contaminación acústica a RDF para representar sensores, observaciones y niveles sonoros.",
     "dominio": "Medio ambiente",
-    "documentacion": "https://raw.githack.com/EDINT-Ontologia/edint-ontologia-contaminacion-acustica/refs/heads/main/mappings/mapping_doc/index.html",
+    "documentacion": null,
     "recursos": [
       {
         "nombre": "RML / Turtle",
@@ -76,16 +77,16 @@
     "fichero": "parking",
     "descripcion": "Transformación de datos de plazas de aparcamiento, sensores y observaciones de ocupación a RDF.",
     "dominio": "Movilidad",
-    "documentacion": "https://raw.githack.com/EDINT-Ontologia/edint-ontologia-aparcamiento/refs/heads/main/mappings/mapping_doc/index.html",
+    "documentacion": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/parking-rmldoc/",
     "recursos": [
       {
         "nombre": "RML / Turtle",
-        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-aparcamiento/blob/main/mappings/mapping_doc/parking.ttl",
+        "url": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/parking-rmldoc/parking.rml.ttl",
         "icon": "fa-solid fa-code"
       },
       {
         "nombre": "YARRRML",
-        "url": "https://github.com/EDINT-Ontologia/edint-ontologia-aparcamiento/blob/main/mappings/yml/parking.yml",
+        "url": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/parking-rmldoc/parking.yml",
         "icon": "fa-solid fa-file-lines"
       },
       {

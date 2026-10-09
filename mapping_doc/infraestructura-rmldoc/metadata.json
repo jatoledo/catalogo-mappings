@@ -1,0 +1,17 @@
+{
+  "title": "Mappings RML para transformar datos de Infraestructura a RDF (EDINT Infraestructura)",
+  "version": "1.0.0",
+  "release": "",
+  "authors": "Jhon Toledo",
+  "description": "Este conjunto de mappings RML transforma datos de infraestructura urbana a RDF, utilizando la ontología EDINT Infraestructura. El objetivo es generar un grafo RDF interoperable para representar infraestructuras urbanas, su localización geográfica, características, tipologías y relaciones con otros elementos del entorno urbano, facilitando la integración, consulta y reutilización de datos procedentes de diferentes fuentes de información.",
+  "serializations": [
+    {
+      "label": "YARRRML",
+      "filename": "infraestructura.yml"
+    },
+    {
+      "label": "RML / Turtle",
+      "filename": "infraestructura.rml.ttl"
+    }
+  ]
+}

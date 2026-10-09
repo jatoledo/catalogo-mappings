@@ -1,0 +1,17 @@
+{
+  "title": "Mappings RML para transformar datos de Aparcamiento a RDF (EDINT Aparcamiento)",
+  "version": "1.0.0",
+  "release": "",
+  "authors": "Jhon Toledo",
+  "description": "Este conjunto de mappings RML transforma datos de aparcamiento a RDF, utilizando la ontología EDINT Aparcamiento. El objetivo es generar un grafo RDF interoperable para representar aparcamientos, plazas de aparcamiento, sensores y su estado de ocupación, a partir de los conjuntos de datos \"spots\", que contienen la ubicación de los sensores y las plazas asociadas, y \"parking\", que recoge la actualización de plazas libres y ocupadas, procedentes del portal de datos abiertos de la Diputación de Badajoz.\n",
+  "serializations": [
+    {
+      "label": "YARRRML",
+      "filename": "parking.yml"
+    },
+    {
+      "label": "RML / Turtle",
+      "filename": "parking.rml.ttl"
+    }
+  ]
+}

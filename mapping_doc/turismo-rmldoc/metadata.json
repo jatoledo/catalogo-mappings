@@ -1,0 +1,17 @@
+{
+  "title": "Mappings RML para transformar datos de Turismo a RDF (EDINT Turismo)",
+  "version": "1.0.0",
+  "release": "",
+  "authors": "Jhon Toledo",
+  "description": "Este conjunto de mappings RML transforma datos turísticos a RDF, utilizando la ontología EDINT Turismo. El objetivo es generar un grafo RDF interoperable para representar recursos y puntos de interés turístico, alojamientos, establecimientos, servicios y actividades turísticas, así como su localización geográfica y características asociadas, facilitando la integración, consulta y reutilización de información turística procedente de diferentes fuentes de datos.",
+  "serializations": [
+    {
+      "label": "YARRRML",
+      "filename": "turismo.yml"
+    },
+    {
+      "label": "RML / Turtle",
+      "filename": "turismo.rml.ttl"
+    }
+  ]
+}

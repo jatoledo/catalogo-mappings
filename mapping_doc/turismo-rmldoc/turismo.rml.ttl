@@ -1,0 +1,322 @@
+@prefix estur: <https://ontologia.segittur.es/turismo/def/core#>.
+@prefix schema: <https://schema.org/>.
+@prefix dcterms: <http://purl.org/dc/terms/>.
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix schema: <http://schema.org/>.
+@prefix formats: <http://www.w3.org/ns/formats/>.
+@prefix comp: <http://semweb.mmlab.be/ns/rml-compression#>.
+@prefix void: <http://rdfs.org/ns/void#>.
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#>.
+@prefix grel: <http://users.ugent.be/~bjdmeest/function/grel.ttl#>.
+@base <http://example.com/ns#>.
+
+
+<recursos_culturales_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "poi_culturales.json";
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$[*]";
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/badajoz/poi/{identifier}";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant estur:HistoricalOrCulturalResource;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant schema:identifier;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "identifier";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant estur:name;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "name";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant estur:hasLocation;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/badajoz/poi/{identifier}/location";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant schema:image;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "image";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dcterms:modified;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "extras.changed[0]";
+			rr:datatype xsd:dateTime
+		];
+	].
+
+
+<ubicaciones_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "poi_culturales.json";
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$[*]";
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/badajoz/poi/{identifier}/location";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant estur:Location;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant estur:country;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "addressCountry";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant estur:autonomousCommunity;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "addressRegion";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant estur:province;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "addressProvince";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant estur:locality;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "addressLocality";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant estur:streetAddress;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "streetAddress";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant geo:lat;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "latitude";
+			rr:datatype xsd:decimal
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant geo:long;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "longitude";
+			rr:datatype xsd:decimal
+		];
+	].
+
+
+<descripciones_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "poi_culturales.json";
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$[*]";
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/badajoz/poi/{identifier}/description";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant estur:Description;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant estur:longDescription;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "description";
+		];
+	].
+
+
+<enlaces_descripcion_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "poi_culturales.json";
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$[*]";
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/badajoz/poi/{identifier}";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant estur:hasDescription;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/badajoz/poi/{identifier}/description";
+			rr:termType rr:IRI
+		];
+	].
+
+
+<contactos_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "poi_culturales.json";
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$[*]";
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/badajoz/poi/{identifier}/contact";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant estur:ContactPoint;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant estur:telephone;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "telephone";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant estur:email;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "email";
+		];
+	].
+
+
+<enlaces_contacto_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "poi_culturales.json";
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$[*]";
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/badajoz/poi/{identifier}";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant estur:hasContactPoint;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/badajoz/poi/{identifier}/contact";
+			rr:termType rr:IRI
+		];
+	].
+
+
