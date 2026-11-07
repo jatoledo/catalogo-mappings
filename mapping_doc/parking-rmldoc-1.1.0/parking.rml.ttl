@@ -1,0 +1,319 @@
+@prefix schema: <https://schema.org/>.
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix edintapar: <https://edint.es/def/aparcamiento#>.
+@prefix geo: <http://www.opengis.net/ont/geosparql#>.
+@prefix sosa: <http://www.w3.org/ns/sosa/>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix schema: <http://schema.org/>.
+@prefix formats: <http://www.w3.org/ns/formats/>.
+@prefix comp: <http://semweb.mmlab.be/ns/rml-compression#>.
+@prefix void: <http://rdfs.org/ns/void#>.
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#>.
+@prefix grel: <http://users.ugent.be/~bjdmeest/function/grel.ttl#>.
+@base <http://example.com/ns#>.
+
+
+<parking-spot_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "1_parkingspot__data_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/plaza-aparcamiento/{entityid}";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintapar:ParkingSpot;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:identifier;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "entityid";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdfs:label;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "description";
+			rr:termType rr:Literal
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant geo:hasGeometry;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/location/plaza-aparcamiento/{entityid}";
+			rr:termType rr:IRI
+		];
+	].
+
+
+<parking-spot-location_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "1_parkingspot__data_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/location/plaza-aparcamiento/{entityid}";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant geo:Geometry;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant geo:asWKT;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "location";
+			rr:datatype geo:wktLiteral
+		];
+	].
+
+
+<parking-zone_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "2_parkinggroup_data_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/zona-aparcamiento/{entityid}";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintapar:ParkingZone;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:identifier;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "entityid";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdfs:label;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "description";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdfs:label;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "name";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant geo:hasGeometry;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/location/zona-aparcamiento/{entityid}";
+			rr:termType rr:IRI
+		];
+	].
+
+
+<parking-zone-geometry_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "2_parkinggroup_data_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/location/zona-aparcamiento/{entityid}";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant geo:Geometry;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant geo:asWKT;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "polygon";
+			rr:datatype geo:wktLiteral
+		];
+	].
+
+
+<parking-zone-has-spot_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "1_parkingspot__data_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/zona-aparcamiento/{refparkinggroup}";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant edintapar:hasParkingSpot;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/plaza-aparcamiento/{entityid}";
+			rr:termType rr:IRI
+		];
+	].
+
+
+<offStreet-parking_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "3_offstreetparking_data_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/aparcamiento/{entityid}";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintapar:OffStreetParking;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:identifier;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "entityid";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdfs:label;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "Aparcamiento {name}";
+			rr:termType rr:Literal
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant edintapar:numberOfParkingSpots;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "totalspotnumber";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant edintapar:hasParkingZone;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/zona-aparcamiento/{refparkinggroup}";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant edintapar:hasParkingSpot;
+		];
+		rr:objectMap [
+			a rr:RefObjectMap;
+			rr:parentTriplesMap <parking-spot_0>;
+			rr:joinCondition [
+				rr:child "refparkinggroup";
+				rr:parent "refparkinggroup";
+			];
+		];
+	].
+
+
