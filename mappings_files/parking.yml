@@ -1,87 +1,98 @@
 prefixes:
-  schema: http://www.owl-ontologies.com/schema#
+  schema: https://schema.org/
   geosparql: http://www.opengis.net/ont/geosparql#
   dct: http://purl.org/dc/terms/
-  edintapar: https://edint.es/def/urbanismo-infraestructuras/aparcamiento#
-  esdir: https://edint.es/def/urbanismo-infraestructuras/direccion-postal#
+  edintapar: https://edint.es/def/aparcamiento#
   geo: http://www.opengis.net/ont/geosparql#
   sosa: http://www.w3.org/ns/sosa/
   rdfs: http://www.w3.org/2000/01/rdf-schema#
   xsd: http://www.w3.org/2001/XMLSchema#
 
 sources:
-  spots-source: ['spots.csv~csv']
-  history-source: ['parking_normalizado.csv~csv']
+  parkingspot-source: ['1_parkingspot__data_normalizado.csv~csv']
+  parkinggroup-source: ['2_parkinggroup_data_normalizado.csv~csv']
+  offstreetparking-source: ['3_offstreetparking_data_normalizado.csv~csv']
 
 mappings:
-  # Plaza de aparcamiento
+  # PLAZA DE APARCAMIENTO
   parking-spot:
     sources:
-      - spots-source
-    s: https://example.org/recurso/plaza-aparcamiento/$(entityID)
+      - parkingspot-source
+    s: https://example.org/recurso/plaza-aparcamiento/$(entityid)
     po:
       - [a, edintapar:ParkingSpot]
-      - [dct:identifier, $(entityID)]
-#      - [rdfs:label, "nombre o código identificativo de la plaza $(name)"]
+      - [dct:identifier, $(entityid)]
       - p: rdfs:label
         o:
-          value:  "nombre o código identificativo de la plaza $(name)"
+          value:  "$(description)"
           type: literal
-      - [schema:length, $(length)]
-      - [schema:width, $(width)]
-      - [schema:address, "https://example.org/recurso/direccion-postal/aparcamiento/$(refParkingSite)~iri"]
-      - [geo:hasGeometry, "https://example.org/recurso/geometria/plaza-aparcamiento/$(entityID)~iri"]
-
-  parking-spot-geometry:
+      - [geo:hasGeometry, "https://example.org/recurso/location/plaza-aparcamiento/$(entityid)~iri"]
+  # Punto WKT de cada plaza
+  parking-spot-location:
     sources:
-      - spots-source
-    s: https://example.org/recurso/geometria/plaza-aparcamiento/$(entityID)
+      - parkingspot-source
+    s: https://example.org/recurso/location/plaza-aparcamiento/$(entityid)
     po:
       - [a, geo:Geometry]
-      - p: dct:identifier
+      - p: geo:asWKT
         o:
-          value:  "$(entityID)-geometry"
-          type: literal
-      # X Y = longitude latitude.
-      - [geo:asWKT, "POINT ($(long) $(lat))", geo:wktLiteral]
-
-  parking-spot-address:
+          value: $(location)
+          datatype: geo:wktLiteral
+  # 3. Instancias ParkingZone (cada entidad ParkingGroup)
+  parking-zone:
     sources:
-      - spots-source
-    s: https://example.org/recurso/direccion-postal/aparcamiento/$(refParkingSite)
+      - parkinggroup-source
+    s: https://example.org/recurso/zona-aparcamiento/$(entityid)
     po:
-      - [a, esdir:DireccionPostal]
-      - p: dct:identifier
-        o:
-          value: "$(refParkingSite)-address"
-          type: literal
-      - [rdfs:label, $(address)]
+      - [a, edintapar:ParkingZone]
+      - [dct:identifier, $(entityid)]
+      - [rdfs:label, $(description)]
+      - [rdfs:label, $(name)]
+      - [geo:hasGeometry, "https://example.org/recurso/location/zona-aparcamiento/$(entityid)~iri"]
 
-  parking-site:
+  # Poligono WKT de cada zona
+  parking-zone-geometry:
     sources:
-      - spots-source
-    s: https://example.org/recurso/aparcamiento/$(refParkingSite)
+      - parkinggroup-source
+    s: https://example.org/recurso/location/zona-aparcamiento/$(entityid)
+    po:
+      - [a, geo:Geometry]
+      - p: geo:asWKT
+        o:
+          value: $(polygon)
+          datatype: geo:wktLiteral
+
+  # Zona -> plaza: fuente ParkingSpot; no necesita join
+  parking-zone-has-spot:
+    sources:
+      - parkingspot-source
+    s: https://example.org/recurso/zona-aparcamiento/$(refparkinggroup)
+    po:
+      - [edintapar:hasParkingSpot, "https://example.org/recurso/plaza-aparcamiento/$(entityid)~iri"]
+
+
+  # Aparcamiento -> zona: fuente OffStreetParking normalizado
+  offStreet-parking:
+    sources:
+      - offstreetparking-source
+    s: https://example.org/recurso/aparcamiento/$(entityid)
     po:
       # Aparacameinto fuera de la via pública
       - [a, edintapar:OffStreetParking]
-      - [dct:identifier, $(refParkingSite)]
+      - [dct:identifier, $(entityid)]
       - p: rdfs:label
         o:
-          value: "Aparcamiento $(address)"
+          value: "Aparcamiento $(name)"
           type: literal
-      - [schema:address, "https://example.org/recurso/direccion-postal/aparcamiento/$(refParkingSite)~iri"]
-      # relacion: Parking -> ParkingSpot.
-      - [edintapar:hasParkingSpot, "https://example.org/recurso/plaza-aparcamiento/$(entityID)~iri"]
-
-  parking-spot-occupancy-observation:
-    sources:
-      - history-source
-    s: https://example.org/recurso/observacion/ocupacion-plaza/$(entityId)-$(_id)
-    po:
-      - [a, sosa:Observation]
-      - [dct:identifier, $(_id)]
-      # Plaza sobre la que se realiza la observación.
-      - [sosa:hasFeatureOfInterest, "https://example.org/recurso/plaza-aparcamiento/$(entityId)~iri"]
-      # Propiedad observada: ocupación de la plaza.
-      - [sosa:hasSimpleResult, $(status)]
-      - [sosa:resultTime, $(dateModified), xsd:dateTime]
+      - [edintapar:numberOfParkingSpots, $(totalspotnumber) ]
+      - [edintapar:hasParkingZone, "https://example.org/recurso/zona-aparcamiento/$(refparkinggroup)~iri"]
+      # OffStreetParking -> ParkingSpot
+      # Enlace directo adicional: aparcamiento -> plaza.
+      - p: edintapar:hasParkingSpot
+        o:
+          mapping: parking-spot
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(refparkinggroup), s]
+              - [str2, $(refparkinggroup), o]
