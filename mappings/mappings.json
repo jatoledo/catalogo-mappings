@@ -77,21 +77,21 @@
     "fichero": "parking",
     "descripcion": "Transformación de datos de plazas de aparcamiento, sensores y observaciones de ocupación a RDF.",
     "dominio": "Movilidad",
-    "documentacion": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/parking-rmldoc/",
+    "documentacion": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/parking-rmldoc-1.1.0/",
     "recursos": [
       {
         "nombre": "RML / Turtle",
-        "url": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/parking-rmldoc/parking.rml.ttl",
+        "url": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/parking-rmldoc-1.1.0/parking.rml.ttl",
         "icon": "fa-solid fa-code"
       },
       {
         "nombre": "YARRRML",
-        "url": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/parking-rmldoc/parking.yml",
+        "url": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/parking-rmldoc-1.1.0/parking.yml",
         "icon": "fa-solid fa-file-lines"
       },
       {
         "nombre": "Repositorio",
-        "url": "https://github.com/jatoledo/catalogo-mappings/tree/main/mapping_doc/parking-rmldoc",
+        "url": "https://github.com/jatoledo/catalogo-mappings/tree/main/parking-rmldoc-1.1.0/parking-rmldoc",
         "icon": "fa-brands fa-github"
       }
     ]
