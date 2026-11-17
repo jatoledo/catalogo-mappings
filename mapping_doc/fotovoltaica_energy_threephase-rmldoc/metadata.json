@@ -1,0 +1,17 @@
+{
+  "title": "Mappings RML para transformar datos de Energía Fotovoltaica a RDF (EDINT Fotovoltaica)",
+  "version": "1.0.0",
+  "release": "17-11-2026",
+  "authors": "Jhon Toledo",
+  "description": "Este conjunto de mappings RML transforma datos de energía fotovoltaica a RDF, utilizando la ontología EDINT Fotovoltaica. El objetivo es generar un grafo RDF interoperable para representar instalaciones fotovoltaicas, inversores, dispositivos de medición y datos de generación eléctrica. Estos datos permiten describir la producción energética de las instalaciones fotovoltaicas y relacionar las mediciones eléctricas con los dispositivos e infraestructuras asociados.",
+  "serializations": [
+    {
+      "label": "YARRRML",
+      "filename": "fotovoltaica_energy_threephase.yml"
+    },
+    {
+      "label": "RML / Turtle",
+      "filename": "fotovoltaica_energy_threephase.rml.ttl"
+    }
+  ]
+}
