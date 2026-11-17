@@ -143,5 +143,30 @@
         "icon": "fa-brands fa-github"
       }
     ]
-  }
+  },
+  {
+  "mapping": "Fotovoltaica - Medición Trifásica",
+  "fichero": "fotovoltaica_energy_threephase",
+  "descripcion": "Transformación de datos de energía fotovoltaica a RDF para representar mediciones eléctricas trifásicas, incluyendo potencia instantánea, intensidad, tensión y energía diaria y acumulada, así como sus relaciones con inversores y dispositivos de medición mediante la ontología EDINT Fotovoltaica.",
+  "dominio": "Energía Fotovoltaica",
+  "documentacion": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/fotovoltaica_energy_threephase-rmldoc/",
+  "recursos": [
+    {
+      "nombre": "RML / Turtle",
+      "url": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/fotovoltaica_energy_threephase-rmldoc/fotovoltaica_energy_threephase.rml.ttl",
+      "icon": "fa-solid fa-code"
+    },
+    {
+      "nombre": "YARRRML",
+      "url": "https://jatoledo.github.io/catalogo-mappings/mapping_doc/fotovoltaica_energy_threephase-rmldoc/fotovoltaica_energy_threephase.yml",
+      "icon": "fa-solid fa-file-lines"
+    },
+    {
+      "nombre": "Repositorio",
+      "url": "https://github.com/jatoledo/catalogo-mappings/tree/main/mapping_doc/fotovoltaica_energy_threephase-rmldoc",
+      "icon": "fa-brands fa-github"
+    }
+  ]
+}
+
 ]
